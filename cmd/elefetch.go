@@ -22,7 +22,7 @@ var ele = `
      ,----(     ..    ) %s
     /      \__     __/  %s
    /|         (\  |(    %s
-  ^ \   /___\  /\ |
+  ^ \   /___\  /\ |     %s
      |__|   |__| -
 `
 
@@ -30,10 +30,11 @@ var ele = `
 func elefetch() {
 	fmt.Printf(
 		ele,
-		UserInfo(),
-		OS(),
-		Kernel(),
-		Shell(),
+		UserText(),
+		OSText(),
+		KernelText(),
+		ShellText(),
+		WMText(),
 	)
 	printColors()
 }
