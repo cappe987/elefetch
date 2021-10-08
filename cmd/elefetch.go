@@ -35,4 +35,5 @@ func elefetch() {
 		Kernel(),
 		Shell(),
 	)
+	printColors()
 }

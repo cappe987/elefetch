@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 	"os/user"
 )
@@ -25,4 +26,20 @@ func UserInfo() string {
 	}
 
 	return username + "@" + host
+}
+
+func printColors() {
+	// whitespace for padding
+	padding := "                         "
+
+	fmt.Printf("\n" + padding)
+	for i := 0; i < 8; i++ {
+		fmt.Printf("\033[4%dm   ", i)
+	}
+	fmt.Printf("\033[0m" + "\n" + padding)
+
+	for i := 0; i < 8; i++ {
+		fmt.Printf("\033[10%dm   ", i)
+	}
+	fmt.Printf("\033[0m" + "\n")
 }
