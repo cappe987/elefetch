@@ -2,6 +2,11 @@
 
 package cmd
 
+import (
+	"os/exec"
+	"strings"
+)
+
 func OS() string {
 	// use wmic for getting caption with OS name
 	out, _ := exec.Command("wmic", "os", "get", "caption").Output()
