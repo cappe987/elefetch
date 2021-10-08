@@ -1,6 +1,7 @@
 <div align = "center">
     <h1>elefetch</h1>
     <h4>🐘 Cross-platform, neofetch alternative for fetching system info.</h4>
+    <img src = "static/windows-preview.png">
 </div>
 
 ## Installation
