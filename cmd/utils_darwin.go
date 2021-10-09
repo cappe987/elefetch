@@ -2,6 +2,12 @@
 
 package cmd
 
+import (
+	"os"
+	"os/exec"
+	"strings"
+)
+
 func OS() string {
 	out, err := exec.Command("sw_vers", "-productName").CombinedOutput()
 	if err != nil {
