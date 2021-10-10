@@ -32,7 +32,6 @@ var ele = `
 
 func customAscii(path string){
 	values := [5]string{UserText(), OSText(), KernelText(), ShellText(), WMText()}
-	path = strings.Replace(path, "~", os.Getenv("HOME"), 1) // Handles paths using ~/ syntax
 	art, err := os.ReadFile(path)
 	if err != nil {
 		fmt.Printf("Error: no such file '%s'", path)
