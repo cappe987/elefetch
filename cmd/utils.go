@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/user"
+	"strings"
 )
 
 // UserInfo fetches basic information about the user.
@@ -28,9 +29,9 @@ func UserInfo() string {
 	return username + "@" + host
 }
 
-func printColors() {
+func printColors(paddingLength int) {
 	// whitespace for padding
-	padding := "                         "
+	padding := strings.Repeat(" ", paddingLength)
 
 	fmt.Printf("\n" + padding)
 	for i := 0; i < 8; i++ {

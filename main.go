@@ -7,8 +7,13 @@ import (
 	"github.com/burntcarrot/elefetch/cmd"
 )
 
+
 func main() {
-	if err := cmd.EleFetch.Execute(); err != nil {
+	elefetch := cmd.EleFetch
+	elefetch.Flags().StringVar(&cmd.AsciiPath, "source", "", "Path to custom ASCII file")
+	elefetch.ParseFlags(os.Args)
+	
+	if err := elefetch.Execute(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
