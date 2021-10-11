@@ -7,7 +7,7 @@ CYAN="\033[36m"
 ENDCOLOR="\033[0m"
 
 echo -e "${CYAN}"
-echo "elefetch is cross-platform, neofetch alternative for fetching system info."
+echo "elefetch is a cross-platform, neofetch alternative for fetching system info."
 echo "-----------------------"
 echo "Fetching latest version"
 version=$(curl -s https://api.github.com/repos/burntcarrot/elefetch/releases/latest | grep '"tag_name"' | cut -d'"' -f 4)
@@ -56,7 +56,7 @@ echo -n -e "${ENDCOLOR}"
 mv /tmp/elefetch /usr/local/bin
 if [ $? -ne 0 ]; then
         echo -e  "${YELLOW}"
-        echo "Runing command again with sudo"
+        echo "Insufficient privileges; sudo is required to install elefetch."
         echo -n -e "${ENDCOLOR}"
         sudo mv /tmp/elefetch /usr/local/bin
 fi
