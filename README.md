@@ -8,9 +8,11 @@
 - go get:
   - `go get -u github.com/burntcarrot/elefetch`
 - Binaries
-  - Coming Soon
+  - Binaries are available under [Releases](https://github.com/burntcarrot/elefetch/releases).
 - Easy, script-based installation
-  - Coming Soon
+  ```bash
+  curl -sfL https://github.com/burntcarrot/elefetch/raw/main/install.sh | bash
+  ```
 
 ## Build from Source
 
