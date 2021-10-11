@@ -10,7 +10,23 @@ import (
 
 // fetch OS name
 func OS() string {
-	return strings.TrimSpace(os.Getenv("NAME"))
+	var osname []byte
+
+	osname, _ = exec.Command("bash", "-c", "lsb_release -d | awk -F ' ' '{$1=\"\"; print $0}'").CombinedOutput()
+	if strings.Contains(string(osname), "command not found") {
+		if _, err := os.Stat("/etc/os-release"); os.IsNotExist(err) {
+			// /etc/os-release contains variables. Source and echo the prettyname.
+			osname, _ = exec.Command("bash", "-c", "source /etc/os-release; echo $PRETTY_NAME").CombinedOutput()
+		} else {
+			// The other files contain just the description/prettyname.
+			osname, _ = exec.Command("bash", "-c", "cat /etc/*-release | head -1").CombinedOutput()
+			if strings.Contains(string(osname), "No such file or directory") {
+				return "" // Default to empty string.
+			}
+		}
+	}
+
+	return strings.TrimSpace(string(osname))
 }
 
 // fetch kernel info
